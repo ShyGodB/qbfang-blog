@@ -1,0 +1,35 @@
+{
+  "name": "api.qbfang.blog",
+  "version": "1.0.0",
+  "description": "The API for qbfang's blog",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShyGodB/api.qbfang.blog.git"
+  },
+  "author": "ShyGodB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShyGodB/api.qbfang.blog/issues"
+  },
+  "homepage": "https://github.com/ShyGodB/api.qbfang.blog#readme",
+  "dependencies": {
+    "knex": "^0.19.4",
+    "koa": "^2.7.0",
+    "koa-body": "^4.1.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-ejs": "^4.2.0",
+    "koa-json": "^2.0.2",
+    "koa-multer": "^1.0.2",
+    "koa-router": "^7.4.0",
+    "md5": "^2.2.1",
+    "moment": "^2.24.0",
+    "mysql2": "^1.6.5",
+    "nodemon": "^1.18.10"
+  }
+}
