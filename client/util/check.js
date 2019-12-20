@@ -7,16 +7,16 @@ handler.checkMainActiveIndex = (routeName) => {
         case "Index":
             activeIndex = "1";
             break;
-        case "Operating":
+        case "TechnologyShare":
             activeIndex = "2";
             break;
-        case "Settle":
+        case "Life":
             activeIndex = "3";
             break;
-        case "Data":
+        case "Found":
             activeIndex = "4";
             break;
-        case "Setting":
+        case "WorkSpace":
             activeIndex = "5";
             break;
         default:
@@ -28,17 +28,17 @@ handler.checkMainActiveIndex = (routeName) => {
 handler.checkSecondaryActiveIndex = (routeName, tab) => {
     let activeIndex = "1";
     switch(routeName) {
-        case "Operating":
+        case "TechnologyShare":
             activeIndex = me.checkOperating(tab);
             break;
-        case "Settle":
+        case "Life":
             activeIndex = me.checkSettle(tab);
             break;
-        case "Data":
+        case "Found":
             activeIndex = me.checkData(tab);
             break;
-        case "Setting":
-            activeIndex = me.checkSetting(tab);
+        case "WorkSpace":
+            activeIndex = me.WorkSpace(tab);
             break;
         default:
             break;
@@ -154,19 +154,19 @@ me.checkData = (tab) => {
     return activeIndex;
 }
 
-me.checkSetting = (tab) => {
+me.WorkSpace = (tab) => {
     let activeIndex = "1";
     switch(tab) {
-        case "userList":
+        case "workbench":
             activeIndex = "1";
             break;
-        case "roleConfig":
+        case "desktop":
             activeIndex = "2";
             break;
-        case "menuConfig":
+        case "inbox":
             activeIndex = "3";
             break;
-        case "techMethod":
+        case "trash":
             activeIndex = "4";
             break;
         case "agentLevel":

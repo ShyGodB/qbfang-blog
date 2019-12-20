@@ -3,12 +3,13 @@ import Router from 'vue-router'
 
 // 原始组件 ---- 一级
 import Index from './views/Index.vue'
-import Operating from './views/Operating.vue'
-import Settle from './views/Settle.vue'
-import Data from './views/Data.vue'
-import Setting from './views/Setting.vue'
+import TechnologyShare from './views/TechnologyShare.vue'
+import Life from './views/Life.vue'
+import Found from './views/Found.vue'
+import WorkSpace from './views/WorkSpace.vue'
 import NotFount from './views/404.vue'
-import Login from './views/Login.vue';
+import Login from './views/Login.vue'
+import Doc from './views/Doc.vue'
 
 Vue.use(Router)
 
@@ -22,24 +23,24 @@ export default new Router({
             component: Index
         },
         {
-            path: '/operating/:tab',
-            name: 'Operating',
-            component: Operating
+            path: '/technologyShare/',
+            name: 'TechnologyShare',
+            component: TechnologyShare
         },
         {
-            path: '/settle/:tab',
-            name: 'Settle',
-            component: Settle
+            path: '/life/',
+            name: 'Life',
+            component: Life
         },
         {
-            path: '/data:tab',
-            name: 'Data',
-            component: Data
+            path: '/found',
+            name: 'Found',
+            component: Found
         },
         {
-            path: '/setting/:tab',
-            name: 'Setting',
-            component: Setting
+            path: '/workSpace/:tab',
+            name: 'WorkSpace',
+            component: WorkSpace
         },
         {
             path: '/404',
@@ -51,5 +52,10 @@ export default new Router({
             name: 'login',
             component: Login
         },
+        {
+            path: '/doc/:tab',
+            name: 'Doc',
+            component: Doc
+        }
     ]
 })

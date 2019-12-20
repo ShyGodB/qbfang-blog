@@ -1,10 +1,10 @@
 <template>
-    <el-container style="padding: 0">
+    <el-container style="padding: 0;">
         <el-header>
             <mainnav></mainnav>
         </el-header>
 
-        <el-main>
+        <el-main class="h-100">
             <mainbox></mainbox>
         </el-main>
 

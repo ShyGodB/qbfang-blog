@@ -11,5 +11,4 @@ module.exports = (router) => {
     router.use('/api/client/home', homeRoute.routes(), homeRoute.allowedMethods());
     router.use('/api/client/order', orderRoute.routes(), orderRoute.allowedMethods());
     router.use('/api/client/user', userRoute.routes(), userRoute.allowedMethods());
-
 };

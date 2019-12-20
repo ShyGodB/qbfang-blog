@@ -4,7 +4,7 @@ const router = require('koa-router')();
 const userControl = require('../control/user');
 
 
-router.post('/list', userControl.listUser); //测试
+router.post('/createFile', userControl.createFile); // 创建文件
 
 
 module.exports = router;

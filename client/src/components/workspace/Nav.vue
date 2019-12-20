@@ -1,13 +1,13 @@
 <template>
-    <el-row class="tac" id="Settle-nav">
+    <el-row class="w-100 h-100">
         <el-col :span="24">
             <el-menu
             :default-active="activeIndex"
             class="el-menu-vertical-demo"
             @select="handleSelect"
-            :router="true"
             background-color="#ffffff"
-            text-color="#000000"
+            text-color="#000"
+            :router="true"
             active-text-color="#ff0000">
 
                 <el-menu-item v-for="(menu, index) in menus" :index="(index + 1).toString()" :key="index" :route="menu.route">
@@ -20,8 +20,8 @@
     </el-row>
 </template>
 
-
 <script>
+import Desktop from './Desktop'
 import check from '../../../util/check'
 
 export default {
@@ -31,35 +31,27 @@ export default {
             activeIndex: '1',
             menus: [
                 {
-                    name: '代理商结算',
-                    route: { name: 'Settle', params: { tab: 'settlement' } }
+                    name: '工作台',
+                    route: { name: 'WorkSpace', params: { tab: 'workbench' } }
                 },
                 {
-                    name: '提现管理',
-                    route: { name: 'Settle', params: { tab: 'cash' } }
+                    name: '我的桌面',
+                    route: { name: 'WorkSpace', params: { tab: 'desktop' } }
                 },
                 {
-                    name: '技师流水',
-                    route: { name: 'Settle', params: { tab: 'techIncome' } }
+                    name: '收件箱',
+                    route: { name: 'WorkSpace', params: { tab: 'inbox' } }
                 },
                 {
-                    name: '账户余额',
-                    route: { name: 'Settle', params: { tab: 'account' } }
-                },
-                {
-                    name: '退款管理',
-                    route: { name: 'Settle', params: { tab: 'refund' } }
-                },
-                {
-                    name: '充值管理',
-                    route: { name: 'Settle', params: { tab: 'recharge' } }
+                    name: '回收站',
+                    route: { name: 'WorkSpace', params: { tab: 'trash' } }
                 }
             ]
         }
     },
     methods: {
         handleSelect(key, keyPath) {
-            // console.log(key, keyPath);
+            console.log(key, keyPath);
         },
     },
     created() {
@@ -71,4 +63,5 @@ export default {
 
 
 <style scoped>
+
 </style>

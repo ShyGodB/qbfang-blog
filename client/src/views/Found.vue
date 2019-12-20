@@ -1,20 +1,27 @@
 <template>
-    <div id="Index" class="w-100">
-        <h1> Webcome to qbfang's blog! </h1>
-    </div>
+    <el-row class="w-100">
+        <h2> Welcome to the page Found! </h2>
+    </el-row>
 </template>
+
 
 <script>
 
 export default {
-    name: 'Index',
+    name: 'Found',
     components: {
 
     },
     data() {
         return {
 
-        }
+        };
+    },
+    methods: {
+
+    },
+    watch: {
+
     },
     created() {
 
@@ -24,8 +31,5 @@ export default {
 
 
 <style scoped>
-#myChart {
-    width: 100%;
-    height: 400px;
-}
+
 </style>

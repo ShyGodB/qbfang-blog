@@ -12,14 +12,11 @@
                     :router="true"
                     @select="handleSelect">
 
-                        <el-menu-item v-for="(menu, index) in menus" :index="(index + 1).toString()" :key="index" :route="menu.route">
+                        <el-menu-item v-for="(menu, index) in menus" :index="(index + 1).toString()"
+                            :key="index" :route="menu.route"
+                            :class="menu.name === '工作空间' ? 'f-right' : ''">
                             <i class="el-icon-menu"></i>
                             {{ menu.name }}
-                        </el-menu-item>
-
-
-                        <el-menu-item index="6" class="f-right">
-                            退出
                         </el-menu-item>
 
                         <el-submenu index="7" class="content-top-right" style="float:right;">
@@ -34,12 +31,10 @@
                                 Github
                             </el-menu-item>
 
-                            <el-menu-item id="logout" index="7-3" @click="logout">Log Out</el-menu-item>
+                            <el-menu-item id="logout" index="7-3" @click="logout">
+                                Log Out
+                            </el-menu-item>
                         </el-submenu>
-
-                        <el-menu-item index="8" class="f-right">
-                            管理员：测试F
-                        </el-menu-item>
                     </el-menu>
                 </div>
             </el-col>
@@ -62,21 +57,21 @@ export default {
                     route: { name: 'Index', path: '/' }
                 },
                 {
-                    name: '运营管理',
-                    route: { name: 'Operating', params: { tab: 'order' } }
+                    name: '技术分享',
+                    route: { name: 'TechnologyShare', params: {} }
                 },
                 {
-                    name: '结算中心',
-                    route: { name: 'Settle', params: { tab: 'settlement' } },
+                    name: '生活',
+                    route: { name: 'Life', params: {} },
                 },
                 {
-                    name: '数据分析',
-                    route: { name: 'Data', params: { tab: 'generalSituation' } }
+                    name: '发现',
+                    route: { name: 'Found', params: {} }
 
                 },
                 {
-                    name: '系统设置',
-                    route: { name: 'Setting', params: { tab: 'userList' } }
+                    name: '工作空间',
+                    route: { name: 'WorkSpace', params: {} }
                 }
             ]
         }
@@ -86,7 +81,7 @@ export default {
             // console.log(key, keyPath);
         },
         goToGithub() {
-            window.open("https://github.com/ShyGodB/admin.edtuina");
+            window.open("https://github.com/ShyGodB/qbfang-blog");
         },
         logout() {
             console.log(1111);

@@ -1,19 +1,19 @@
 <template>
-    <div class="">
-        GeneralSituation
+    <div class="doc mx-5">
+        
     </div>
 </template>
 
 
 <script>
 export default {
-    name: 'GeneralSituation',
+    name: 'Doc',
     data() {
         return {
 
-        };
+        }
     },
-    methods: {
+    created() {
 
     }
 }
