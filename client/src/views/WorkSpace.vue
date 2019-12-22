@@ -14,7 +14,7 @@
                 更多菜单<i class="el-icon-arrow-down el-icon--right"></i>
                 </el-button>
                 <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item @click.native="create('doc')">文档</el-dropdown-item>
+                <el-dropdown-item @click.native="create('Doc')">文档</el-dropdown-item>
                 <el-dropdown-item @click.native="create('table')">表格</el-dropdown-item>
                 <el-dropdown-item @click.native="create('slide')">幻灯片</el-dropdown-item>
                 <el-dropdown-item @click.native="create('mindmap')">思维导图</el-dropdown-item>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Nav from '../components/workspace/Nav'
 import Desktop from '../components/workspace/Desktop'
 import { randomString } from '../../util/method'
@@ -62,58 +63,26 @@ export default {
             this.tab = tab;
         },
         create(type) {
-            switch(type) {
-                case 'doc':
-                    this.$router.push({
-                        name: 'Doc',
-                        params: {
-                            tab: 'aaa'
-                        }
-                    })
-                    break;
-                case 'table':
-                    this.$message({
-                        message: '此功能尚未完善，敬请期待！',
-                        type: 'warning'
-                    });
-                    break;
-                case 'slide':
-                    this.$message({
-                        message: '此功能尚未完善，敬请期待！',
-                        type: 'warning'
-                    });
-                    break;
-                case 'mindmap':
-                    this.$message({
-                        message: '此功能尚未完善，敬请期待！',
-                        type: 'warning'
-                    });
-                    break;
-                case 'whiteboard':
-                    this.$message({
-                        message: '此功能尚未完善，敬请期待！',
-                        type: 'warning'
-                    });
-                    break;
-                case 'form':
-                    this.$message({
-                        message: '此功能尚未完善，敬请期待！',
-                        type: 'warning'
-                    });
-                    break;
-                case 'folder':
-                    this.$message({
-                        message: '此功能尚未完善，敬请期待！',
-                        type: 'warning'
-                    });
-                    break;
-                default:
-                    this.$message({
-                        message: '此功能尚未完善，敬请期待！',
-                        type: 'warning'
-                    });
-                    break;
-            }
+            const fileId = randomString(32);
+            axios({
+                method: 'post',
+                url: '/api/client/user/createFile',
+                responseType: 'json',
+                data: {
+                    fileId: fileId,
+                    fileType: type
+                }
+            }).then(resp => {
+                console.log('----', resp);
+                this.$router.push({
+                    name: type,
+                    params: {
+                        tab: fileId
+                    }
+                })
+            }).catch(err => {
+                throw err;
+            });
         }
     },
     watch: {

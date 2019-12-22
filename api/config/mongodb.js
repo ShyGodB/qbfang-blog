@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const mongodb = {
     url: '127.0.0.1:27017',
     database: 'blog',
-    user: 'root',
+    user: '',
     password: ''
 };
 
@@ -21,7 +21,7 @@ module.exports = {
             }
         ).catch(err => {
             // log.error('Error db connect', err)
-            console.log('mongodb连接错误', err);
+            console.log('mongodb连接错误: ', err);
             process.exit()
         })
     }

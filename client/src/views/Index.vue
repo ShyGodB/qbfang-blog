@@ -13,11 +13,21 @@ export default {
     },
     data() {
         return {
-
+            // count: this.$store.state.count
+        }
+    },
+    methods: {
+        add() {
+            // this.$store.dispatch('a')
+            // this.count = this.$store.state.count
+        },
+        subtract() {
+            // this.$store.dispatch('s')
+            // this.count = this.$store.state.count
         }
     },
     created() {
-
+        // this.count = this.$store.state.count
     }
 }
 </script>
