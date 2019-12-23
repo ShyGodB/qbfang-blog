@@ -64,6 +64,7 @@ export default {
         },
         create(type) {
             const fileId = randomString(32);
+            this.$store.state.fileId = fileId;
             axios({
                 method: 'post',
                 url: '/api/client/user/createFile',

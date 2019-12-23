@@ -1,48 +1,67 @@
 <template>
-    <div class="doc mx-5">
-        <div class="">
-            <h1>{{count}}</h1>
-        </div>
-        <!-- <doc-markdown :source="source"></doc-markdown> -->
+    <div class="doc w-100">
+        <el-row class="h-100">
+            <el-col :span="5">
+                左
+            </el-col>
+
+            <el-col :span="14" class="px-3 h-100 bg-white">
+                <markdown></markdown>
+            </el-col>
+
+            <el-col :span="5">
+                右
+            </el-col>
+        </el-row>
     </div>
 </template>
 
 
 <script>
 import axios from 'axios'
-import VueMarkdown from 'vue-markdown'
+import MarkdownEditor from '../components/MarkdownEditor'
 
 export default {
     name: 'Doc',
     components: {
-        'doc-markdown': VueMarkdown
+        'markdown': MarkdownEditor
     },
     data() {
         return {
-            source: '',
-            file: '',
-            count: 0
+            title: '无标题',
+            content3: '',
+            fileId: '',
+            file: {}
         }
     },
     created() {
-        axios({
-            method: 'post',
-            url: '/api/client/user/getFile',
-            responseType: 'json',
-            data: {
-                fileId: fileId
-            }.then(resp => {
-                this.file = resp.data;
-                this.source = resp.data.content || '';
-            }).catch(err => {
-                console.log(err);
-            })
-        })
+        // axios({
+        //     method: 'post',
+        //     url: '/api/client/user/getFile',
+        //     responseType: 'json',
+        //     data: {
+        //         fileId: this.$store.state.fileId
+        //     }
+        // }).then(resp => {
+        //     this.file = resp.data;
+        //     this.content = resp.data.content || '';
+        // }).catch(err => {
+        //     console.log(err);
+        // })
     }
 }
 </script>
 
 
 <style scoped>
-
+.doc {
+    background-color: #e5e5e1;
+    margin: 0 auto;
+    min-height: 700px;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+}
 </style>
