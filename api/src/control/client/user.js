@@ -1,8 +1,11 @@
-const handler = module.exports = {};  // 暴露出去的接口
-// const userService = require('../service/user');
-const Msg = require('../model/Msg');
+const handler = module.exports = {};
+const Msg = require('../../model/Msg');
 const moment = require('moment');
 
+
+handler.test = async (ctx) => {
+    ctx.body = true;
+}
 
 handler.createFile = async (ctx) => {
     const { fileId, fileType } = ctx.request.body;

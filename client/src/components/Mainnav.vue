@@ -71,7 +71,7 @@ export default {
                 },
                 {
                     name: '工作空间',
-                    route: { name: 'WorkSpace', params: {} }
+                    route: { name: 'WorkSpace', params: { tab: 'desktop' } }
                 }
             ]
         }

@@ -20,7 +20,6 @@ module.exports = {
                 poolSize: 5
             }
         ).catch(err => {
-            // log.error('Error db connect', err)
             console.log('mongodb连接错误: ', err);
             process.exit()
         })

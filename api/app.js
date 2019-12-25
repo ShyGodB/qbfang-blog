@@ -1,22 +1,16 @@
 const Koa = require('koa');
 const json = require('koa-json');
+const route = require('./api/route');
 const bodyParser = require('koa-bodyparser');
-const router = require('koa-router')();
-const regRouter = require('./route/');
+const validate = require('koa-validate');
 const mongodb = require('./config/mongodb');
 const app = new Koa();
 const port = 3000;
 
-
 app.use(json());
+app.use(route);
 app.use(bodyParser());
-
-
-
-regRouter(router);
-app.use(router.routes()).use(router.allowedMethods({ throw: true }));
-
-
+validate(app);
 
 (async () => {
     await mongodb.connect();
