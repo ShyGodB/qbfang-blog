@@ -1,7 +1,3 @@
-const parse = require('co-body')
-const raw = require('raw-body')
-const inflate = require('inflation')
-const url = require('url')
 const filter = (ctx) => {
     const url = ctx.url.split('?')[0].toLowerCase()
     const actions = url.split('/')

@@ -8,7 +8,7 @@ const mongodb = {
 };
 
 module.exports = {
-    connect: function () {
+    connect() {
         mongoose.set('useFindAndModify', false)
         return mongoose.connect(
             `mongodb://${mongodb.user}:${mongodb.password}@${mongodb.url}/` + mongodb.database,

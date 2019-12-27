@@ -17,4 +17,4 @@ const schema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Msg', schema);
+module.exports = mongoose.model('Doc', schema);
