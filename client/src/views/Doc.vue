@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     submit() {
-      console.log("123");
+      // console.log("123");
     }
   },
   created() {

@@ -8,6 +8,10 @@
             <workspace-desktop></workspace-desktop>
         </el-col>
 
+        <el-col :span="15" v-if="tab!=='desktop'">
+            123
+        </el-col>
+
         <el-col :span="6">
             <el-dropdown class="ml-5 mt-5">
                 <el-button type="primary" size="small">
@@ -55,7 +59,7 @@ export default {
                     type: type
                 }
             }).then(res => {
-                console.log(res);
+                // console.log(res);
             })
         },
         changeRoute() {
@@ -74,7 +78,6 @@ export default {
                     fileType: type
                 }
             }).then(resp => {
-                console.log('----', resp);
                 this.$router.push({
                     name: type,
                     params: {

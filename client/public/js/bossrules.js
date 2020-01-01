@@ -9,7 +9,6 @@ const bossMethods = {
         }
     },
     checkVercode: (rule, value, callback) => {
-        console.log(rule);
         const reg =  /[0-9]{6}$/g;
         if(!(reg.test(value))){
             callback(new Error('验证码有误，请重填'));
@@ -37,13 +36,10 @@ const bossMethods = {
         }
     },
     checkPassword: (rule, value, callback) => {
-        console.log(1111)
         const reg =  /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/g;
         if(!(reg.test(value))){
-            console.log(2222)
             callback(new Error("密码长度应为6到16，且包含字母与数字"));
         } else {
-            console.log(3333)
             this.ruleForm.password = value;
             callback();
         }

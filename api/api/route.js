@@ -1,5 +1,5 @@
 const filter = (ctx) => {
-    const url = ctx.url.split('?')[0].toLowerCase()
+    const url = ctx.url.split('?')[0]
     const actions = url.split('/')
     const methodUrl = '../src/control/' + actions[2] + '/' + actions[3]
     const methodName = actions[4]
