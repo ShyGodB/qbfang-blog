@@ -1,33 +1,18 @@
-// 解析上下文里node原生请求的POST参数
-const parsePostData = (ctx) => {
-    return new Promise((resolve, reject) => {
-        try {
-            let postdata = "";
-            ctx.req.addListener('data', (data) => {
-                postdata += data
-            })
-            ctx.req.addListener("end", function () {
-                let parseData = parseQueryStr(postdata)
-                resolve(parseData)
-            })
-        } catch (err) {
-            reject(err)
+const parse = async (ctx) => {
+    ctx.params = {}
+    if (ctx.method.toLowerCase() === 'get') {
+        for (let key in ctx.query) {
+            ctx.params[key] = ctx.query[key]
         }
-    })
+    } else {
+        for (let key in ctx.request.body) {
+            ctx.params[key] = ctx.request.body[key]
+        }
+    }
 }
 
-// 将POST请求参数字符串解析成JSON
-const parseQueryStr = (queryStr) => {
-    let queryData = {}
-    let queryStrList = queryStr.split('&')
-    for (let [index, queryStr] of queryStrList.entries()) {
-        let itemList = queryStr.split('=')
-        queryData[itemList[0]] = decodeURIComponent(itemList[1])
-    }
-    return queryData
-}
 
 module.exports = async (ctx, next) => {
-    let a = await parsePostData(ctx);
+    await parse(ctx)
     await next()
 }

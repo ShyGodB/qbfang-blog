@@ -1,15 +1,15 @@
 const Doc = require('../../model/Doc')
 
 const createFile = async (ctx) => {
-    const { fileId, fileType } = ctx.request.body;
-    await Doc.create({
-        fileId,
-        fileType,
-        userId: 1,
-        title: '未命名',
-        content: ''
-    });
-    ctx.body = { success: true };
+    // const { fileId, fileType } = ctx.request.body;
+    // await Doc.create({
+    //     fileId,
+    //     fileType,
+    //     userId: 1,
+    //     title: '未命名',
+    //     content: ''
+    // });
+    ctx.body = ctx.params;
 }
 
 const getFile = async (ctx) => {
