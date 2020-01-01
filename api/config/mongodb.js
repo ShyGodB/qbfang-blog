@@ -15,7 +15,7 @@ module.exports = {
             {
                 useNewUrlParser: true,
                 autoIndex: true,
-                autoReconnect: true,
+                // autoReconnect: true,
                 useUnifiedTopology: true,
                 poolSize: 5
             }
