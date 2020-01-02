@@ -34,25 +34,9 @@ export default {
     };
   },
   methods: {
-    submit() {
-      // console.log("123");
-    }
+    submit() {}
   },
-  created() {
-    // axios({
-    //     method: 'post',
-    //     url: '/api/client/user/getFile',
-    //     responseType: 'json',
-    //     data: {
-    //         fileId: this.$store.state.fileId
-    //     }
-    // }).then(resp => {
-    //     this.file = resp.data;
-    //     this.content = resp.data.content || '';
-    // }).catch(err => {
-    //     console.log(err);
-    // })
-  }
+  created() {}
 };
 </script>
 

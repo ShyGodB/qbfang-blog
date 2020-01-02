@@ -1,7 +1,10 @@
 <template>
   <div>
+    <div>
+      <el-input v-model="doc.title" placeholder="无标题"></el-input>
+    </div>
     <div :id="id" />
-    <button type="button" name="button" @click="submit">提交</button>
+    <button type="button" @click="submit">保存文档</button>
   </div>
 </template>
 
@@ -10,6 +13,7 @@ import "codemirror/lib/codemirror.css"; // codemirror
 import "tui-editor/dist/tui-editor.css"; // editor ui
 import "tui-editor/dist/tui-editor-contents.css"; // editor content
 
+import axios from "axios";
 import Editor from "tui-editor";
 import defaultOptions from "./default-options";
 
@@ -39,7 +43,7 @@ export default {
     },
     mode: {
       type: String,
-      default: "wysiwyg"
+      default: "markdown"
     },
     height: {
       type: String,
@@ -54,7 +58,8 @@ export default {
   },
   data() {
     return {
-      editor: null
+      editor: null,
+      doc: {}
     };
   },
   computed: {
@@ -68,7 +73,6 @@ export default {
   },
   watch: {
     value(newValue, preValue) {
-      console.log("the html is", this.editor.getHtml());
       if (newValue !== preValue && newValue !== this.editor.getValue()) {
         this.editor.setValue(newValue);
       }
@@ -83,9 +87,6 @@ export default {
     mode(newValue) {
       this.editor.changeMode(newValue);
     }
-  },
-  mounted() {
-    this.initEditor();
   },
   destroyed() {
     this.destroyEditor();
@@ -109,23 +110,49 @@ export default {
       this.editor.remove();
     },
     setValue(value) {
-      console.log("setValue: ", value);
       this.editor.setValue(value);
     },
     getValue() {
       return this.editor.getValue();
     },
     setHtml(value) {
-      console.log("setHtml: ", value);
       this.editor.setHtml(value);
     },
     getHtml() {
       return this.editor.getHtml();
     },
+    getFile(data) {
+      axios({
+        method: "GET",
+        url: "/api/client/user/getFile",
+        responseType: "json",
+        params: data
+      }).then(res => {
+        this.doc = res.data.data;
+        this.setHtml(this.doc.content);
+      });
+    },
+    updateFile(data) {
+      axios({
+        method: "POST",
+        url: "/api/client/user/updateFile",
+        responseType: "json",
+        data: data
+      }).then(res => {
+        this.doc = res.data.data.data;
+      });
+    },
     submit() {
-      console.log("the value is", this.editor.getValue());
-      console.log("the html is", this.editor.getHtml());
-    }
+      this.doc.content = this.getHtml();
+      this.updateFile(this.doc);
+    },
+    test() {}
+  },
+  mounted() {
+    this.initEditor();
+  },
+  created() {
+    this.getFile({ fileId: this.$store.state.fileId });
   }
 };
 </script>
