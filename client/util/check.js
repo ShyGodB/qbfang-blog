@@ -3,7 +3,7 @@ const me = {};
 
 handler.checkMainActiveIndex = (routeName) => {
     let activeIndex = "1";
-    switch(routeName) {
+    switch (routeName) {
         case "Index":
             activeIndex = "1";
             break;
@@ -27,7 +27,7 @@ handler.checkMainActiveIndex = (routeName) => {
 
 handler.checkSecondaryActiveIndex = (routeName, tab) => {
     let activeIndex = "1";
-    switch(routeName) {
+    switch (routeName) {
         case "TechnologyShare":
             activeIndex = me.checkOperating(tab);
             break;
@@ -43,12 +43,13 @@ handler.checkSecondaryActiveIndex = (routeName, tab) => {
         default:
             break;
     }
+    if (routeName === 'Folder') activeIndex = '2'
     return activeIndex;
 }
 
 me.checkOperating = (tab) => {
     let activeIndex = "1";
-    switch(tab) {
+    switch (tab) {
         case "order":
             activeIndex = "1";
             break;
@@ -102,7 +103,7 @@ me.checkOperating = (tab) => {
 
 me.checkSettle = (tab) => {
     let activeIndex = "1";
-    switch(tab) {
+    switch (tab) {
         case "settlement":
             activeIndex = "1";
             break;
@@ -129,7 +130,7 @@ me.checkSettle = (tab) => {
 
 me.checkData = (tab) => {
     let activeIndex = "1";
-    switch(tab) {
+    switch (tab) {
         case "generalSituation":
             activeIndex = "1";
             break;
@@ -156,7 +157,7 @@ me.checkData = (tab) => {
 
 me.WorkSpace = (tab) => {
     let activeIndex = "1";
-    switch(tab) {
+    switch (tab) {
         case "workbench":
             activeIndex = "1";
             break;

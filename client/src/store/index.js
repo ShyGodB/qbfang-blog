@@ -4,12 +4,14 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-    count: 1
+    count: 1,
+    fileId: '',
+    fileType: 'Desktop'
 };
 
 const getters = {
-    getCount(){
-       return state.count
+    getCount() {
+        return state.count
     }
 };
 
@@ -24,12 +26,12 @@ const mutations = {
 };
 
 const actions = {
-   a(context) {
-       context.commit('add');
-   },
-   s(context){
-       context.commit('subtract')
-   }
+    a(context) {
+        context.commit('add');
+    },
+    s(context) {
+        context.commit('subtract')
+    }
 };
 
 export default new Vuex.Store({

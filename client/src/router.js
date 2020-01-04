@@ -56,6 +56,11 @@ export default new Router({
             path: '/doc/:tab',
             name: 'Doc',
             component: Doc
+        },
+        {
+            path: '/folder/:tab',
+            name: 'Folder',
+            component: WorkSpace
         }
     ]
 })

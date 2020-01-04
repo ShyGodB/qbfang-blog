@@ -3,8 +3,13 @@
     <h2>我的桌面</h2>
 
     <div class="mt-3 h-100">
-      <el-table :data="files" style="width: 100%">
-        <el-table-column sortable prop="title" label="文件名"></el-table-column>
+      <el-table :data="files" @row-click="open" style="width: 100%">
+        <el-table-column sortable prop="title" label="文件名">
+          <template slot-scope="scope">
+            <i :class="icons[scope.row.fileType]"></i>
+            <span class="pl-3">{{ scope.row.title }}</span>
+          </template>
+        </el-table-column>
         <el-table-column sortable prop="userId" label="创建者" width="180"></el-table-column>
         <el-table-column sortable prop="updateAt" label="更新时间" width="180"></el-table-column>
       </el-table>
@@ -19,37 +24,31 @@ export default {
   name: "Workbench",
   data() {
     return {
-      files: [
-        {
-          fileName: "面试笔试题",
-          creater: "ShyGodB",
-          updateTime: "2019-12-13"
-        },
-        {
-          fileName: "方奇兵-学习",
-          creater: "ShyGodB",
-          updateTime: "2019-12-14"
-        },
-        {
-          fileName: "方奇兵-工作",
-          creater: "ShyGodB",
-          updateTime: "2019-12-15"
-        },
-        {
-          fileName: "备用",
-          creater: "ShyGodB",
-          updateTime: "2019-12-17"
-        }
-      ]
+      files: [],
+      tab: "",
+      icons: {
+        Folder: "el-icon-folder",
+        Doc: "el-icon-document"
+      }
     };
   },
   methods: {
-    listFile(data) {
+    open(row, column, event) {
+      if (row.fileType === "Folder") this.$store.state.fileType = "Folder";
+      this.$store.state.fileId = row.fileId;
+      this.$router.push({
+        name: row.fileType,
+        params: {
+          tab: row.fileId
+        }
+      });
+    },
+    listFile(params) {
       axios({
         method: "GET",
-        url: "/api/client/user/listFile",
+        url: "/api/client/file/list",
         responseType: "JSON",
-        params: data
+        params: params
       }).then(res => {
         console.log(res);
         this.files = res.data.list;
@@ -57,11 +56,24 @@ export default {
     }
   },
   created() {
-    this.listFile({ userId: 1 });
+    const filter = {
+      userId: this.$store.state.userId || 1,
+      fileId: this.$store.state.fileId || 0,
+      fileType:
+        this.$route.name === "WorkSpace"
+          ? "Desktop"
+          : this.$store.state.fileType
+    };
+    this.listFile(filter);
   }
 };
 </script>
 
 
 <style scoped>
+.el-table--enable-row-hover .el-table__body tr:hover {
+  background: rgba(0, 0, 0, 1);
+  border: 1px solid #313463;
+  box-shadow: 0 0 1px 1px #313463, inset 0 0 10px 5px rgba(49, 52, 99, 0.2);
+}
 </style>

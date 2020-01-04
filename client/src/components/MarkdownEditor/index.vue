@@ -124,7 +124,7 @@ export default {
     getFile(data) {
       axios({
         method: "GET",
-        url: "/api/client/user/getFile",
+        url: "/api/client/file/get",
         responseType: "json",
         params: data
       }).then(res => {
@@ -135,11 +135,12 @@ export default {
     updateFile(data) {
       axios({
         method: "POST",
-        url: "/api/client/user/updateFile",
+        url: "/api/client/file/update",
         responseType: "json",
         data: data
       }).then(res => {
-        this.doc = res.data.data.data;
+        // this.doc = res.data.data.data;
+        this.$message.success("保存成功");
       });
     },
     submit() {
