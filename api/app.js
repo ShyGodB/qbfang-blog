@@ -12,8 +12,8 @@ app.use(route);
 
 
 (async () => {
-    await mongodb.connect();
-    app.listen(port, () => {
-        console.log(`The servier is running at http:127.0.0.1:${port}`);
-    });
+  await mongodb.connect();
+  app.listen(port, () => {
+    console.log(`The servier is running at http:127.0.0.1:${port}`);
+  });
 })();

@@ -10,7 +10,7 @@ const create = async (ctx) => {
         fileType,
         parentFileId,
         parentFileType,
-        title: fileName ? fileName : '无标题'
+        title: fileName ? fileName : '无标题',
     });
     ctx.body = { success: true, fileId };
 }

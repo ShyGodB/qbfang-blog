@@ -14,53 +14,53 @@ import Doc from './views/Doc.vue'
 Vue.use(Router)
 
 export default new Router({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes: [
-        {
-            path: '/',
-            name: 'Index',
-            component: Index
-        },
-        {
-            path: '/technologyShare/',
-            name: 'TechnologyShare',
-            component: TechnologyShare
-        },
-        {
-            path: '/life/',
-            name: 'Life',
-            component: Life
-        },
-        {
-            path: '/found',
-            name: 'Found',
-            component: Found
-        },
-        {
-            path: '/workSpace/:tab',
-            name: 'WorkSpace',
-            component: WorkSpace
-        },
-        {
-            path: '/404',
-            name: '404',
-            component: NotFount
-        },
-        {
-            path: '/login',
-            name: 'login',
-            component: Login
-        },
-        {
-            path: '/doc/:tab',
-            name: 'Doc',
-            component: Doc
-        },
-        {
-            path: '/folder/:tab',
-            name: 'Folder',
-            component: WorkSpace
-        }
-    ]
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes: [
+    {
+      path: '/',
+      name: 'Index',
+      component: Index
+    },
+    {
+      path: '/technologyShare/',
+      name: 'TechnologyShare',
+      component: TechnologyShare
+    },
+    {
+      path: '/life/',
+      name: 'Life',
+      component: Life
+    },
+    {
+      path: '/found',
+      name: 'Found',
+      component: Found
+    },
+    {
+      path: '/workSpace/:tab',
+      name: 'WorkSpace',
+      component: WorkSpace
+    },
+    {
+      path: '/404',
+      name: '404',
+      component: NotFount
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/doc/:tab',
+      name: 'Doc',
+      component: Doc
+    },
+    {
+      path: '/folder/:tab',
+      name: 'Folder',
+      component: WorkSpace
+    }
+  ]
 })

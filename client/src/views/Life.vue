@@ -12,20 +12,20 @@ export default {
     components: {
 
     },
-    data() {
+    data () {
         return {
 
         };
     },
     methods: {
-        changeRoute() {
+        changeRoute () {
 
         }
     },
     watch: {
 
     },
-    created() {
+    created () {
 
     }
 }
@@ -33,7 +33,8 @@ export default {
 
 
 <style scoped>
-#god, #boss {
+#god,
+#boss {
     margin-top: 21px;
 }
 .register {

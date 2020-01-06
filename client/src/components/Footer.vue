@@ -17,7 +17,7 @@
 
 export default {
     name: 'footer-main',
-    data() {
+    data () {
         return {
 
         }
@@ -32,6 +32,6 @@ export default {
     min-height: 40px;
     text-align: center;
     margin: 20px auto 0;
-    background: #FFFFFF;
+    background: #ffffff;
 }
 </style>

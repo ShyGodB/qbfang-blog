@@ -17,7 +17,7 @@ const schema = new mongoose.Schema({
     // 文件标题 || 文件夹的名字
     title: { type: String, index: true, default: '无标题' },
     // 内容
-    content: { typr: String, default: '' },
+    content: { type: String, default: '' },
     // 逻辑删除与否
     off: { type: Boolean, default: false }
 }, {
