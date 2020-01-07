@@ -79,8 +79,8 @@ export default {
     created () {
         const filter = {
             userId: this.$store.state.userId || 1,
-            fileId: this.$store.state.fileId || 0,
-            fileType: this.$route.name === 'WorkSpace' ? 'Desktop' : this.$store.state.fileType
+            fileId: this.$route.name === 'Folder' ? this.$route.params.tab : 0,
+            fileType: this.$route.name === 'Folder' ? 'Folder' : 'Desktop'
         }
         this.listFile(filter)
     }

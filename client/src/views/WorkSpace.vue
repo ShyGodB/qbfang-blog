@@ -60,11 +60,12 @@ export default {
                     responseType: 'JSON',
                     data: {
                         fileType: 'Folder',
-                        fileName: value
+                        fileName: value,
+                        parentFileId: this.$route.name === 'Folder' ? this.$route.params.tab : 'Desktop',
+                        parentFileType: this.$route.name === 'Folder' ? 'Folder' : 'Desktop'
                     }
                 }).then(res => {
                     if (res.data.success) {
-                        this.$store.state.fileId = res.data.fileId
                         this.$store.state.fileType = 'Folder'
                         this.$message.success('创建成功！')
                         this.reload()
