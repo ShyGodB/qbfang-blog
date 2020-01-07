@@ -38,7 +38,7 @@
 
 
 <script>
-import check from '../../util/check'
+import util from '../../util'
 
 export default {
     name: 'mainnav',
@@ -81,7 +81,7 @@ export default {
         }
     },
     created () {
-        this.activeIndex = check.checkMainActiveIndex(this.$route.name);
+        this.activeIndex = util.checkMainActiveIndex(this.$route.name);
     }
 }
 </script>

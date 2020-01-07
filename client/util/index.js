@@ -1,5 +1,7 @@
-module.exports = {
-    ...require('./check'),
-    ...require('./method'),
-    ...require('./tools')
+import check from './check'
+import api from './api'
+
+export default {
+    ...check,
+    api: api
 }

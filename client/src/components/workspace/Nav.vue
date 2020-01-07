@@ -1,16 +1,11 @@
 <template>
     <el-row class="w-100 h-100">
         <el-col :span="24">
-            <el-menu
-            :default-active="activeIndex"
-            class="el-menu-vertical-demo"
-            @select="handleSelect"
-            background-color="#ffffff"
-            text-color="#000"
-            :router="true"
-            active-text-color="#ff0000">
+            <el-menu :default-active="activeIndex" class="el-menu-vertical-demo" @select="handleSelect"
+                background-color="#ffffff" text-color="#000" :router="true" active-text-color="#ff0000">
 
-                <el-menu-item v-for="(menu, index) in menus" :index="(index + 1).toString()" :key="index" :route="menu.route">
+                <el-menu-item v-for="(menu, index) in menus" :index="(index + 1).toString()" :key="index"
+                    :route="menu.route">
                     <i class="el-icon-menu"></i>
                     {{ menu.name }}
                 </el-menu-item>
@@ -22,11 +17,11 @@
 
 <script>
 import Desktop from './Desktop'
-import check from '../../../util/check'
+import util from '../../../util'
 
 export default {
     name: 'Settle-nav',
-    data() {
+    data () {
         return {
             activeIndex: '1',
             menus: [
@@ -50,12 +45,12 @@ export default {
         }
     },
     methods: {
-        handleSelect(key, keyPath) {
+        handleSelect (key, keyPath) {
             console.log(key, keyPath);
         },
     },
-    created() {
-        const activeIndex = check.checkSecondaryActiveIndex(this.$route.name, this.$route.params.tab);
+    created () {
+        const activeIndex = util.checkSecondaryActiveIndex(this.$route.name, this.$route.params.tab);
         this.activeIndex = activeIndex;
     }
 }
@@ -63,5 +58,4 @@ export default {
 
 
 <style scoped>
-
 </style>
