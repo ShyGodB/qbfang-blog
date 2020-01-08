@@ -3,7 +3,7 @@ import axios from 'axios'
 const post = async (url, data) => {
     return axios({
         method: 'POST',
-        url: url,
+        url: '/api/client' + url,
         responseType: 'JSON',
         data: data
     })
@@ -12,7 +12,7 @@ const post = async (url, data) => {
 const get = async (url, params) => {
     return axios({
         method: 'GET',
-        url: url,
+        url: '/api/client' + url,
         responseType: 'JSON',
         params: params
     })
