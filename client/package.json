@@ -15,7 +15,7 @@
     "element-ui": "^2.8.2",
     "eslint-scope": "^5.0.0",
     "eslint-utils": "^1.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "koa-multer": "^1.0.2",
     "lodash": "^4.17.13",
     "lodash.defaultsdeep": "^4.6.1",
