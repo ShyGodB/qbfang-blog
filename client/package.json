@@ -25,7 +25,7 @@
     "multer": "^1.4.1",
     "register-service-worker": "^1.6.2",
     "serialize-javascript": "^2.1.1",
-    "set-value": "^3.0.1",
+    "set-value": "^4.0.1",
     "tui-editor": "^1.4.10",
     "vue": "^2.6.10",
     "vue-cropper": "^0.4.9",
