@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/ShyGodB/api.qbfang.blog#readme",
   "dependencies": {
-    "knex": "^0.19.4",
+    "knex": "^2.4.0",
     "koa": "^2.7.0",
     "koa-body": "^4.1.0",
     "koa-bodyparser": "^4.2.1",
