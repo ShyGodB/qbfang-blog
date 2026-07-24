@@ -4,7 +4,11 @@
 <meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#181715" media="(prefers-color-scheme: dark)">
 
-{{ $description := .Description | default site.Params.description }}
+{{ $description := .Description }}
+{{ if and (not $description) .IsPage }}
+  {{ $description = .Summary | plainify | truncate 160 }}
+{{ end }}
+{{ $description = $description | default site.Params.description }}
 <meta name="description" content="{{ $description }}">
 
 <title>
