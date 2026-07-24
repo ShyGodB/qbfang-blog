@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <div class="shell page">
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Content }}<div class="page-intro">{{ . }}</div>{{ end }}
+    </header>
+
+    {{ if .Pages }}
+      {{ partial "article-list.html" .Pages.ByDate.Reverse }}
+    {{ else }}
+      <p class="empty-state">这里还没有文章。</p>
+    {{ end }}
+  </div>
+{{ end }}
+

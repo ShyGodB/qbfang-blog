@@ -1,0 +1,42 @@
+baseURL: https://shygodb.github.io/qbfang-blog/
+locale: zh-cn
+defaultContentLanguage: zh
+title: 方奇兵
+copyright: © 方奇兵
+enableRobotsTXT: true
+hasCJKLanguage: true
+
+permalinks:
+  posts: /writing/:slug/
+
+pagination:
+  pagerSize: 20
+
+taxonomies:
+  tag: tags
+
+outputs:
+  home:
+    - HTML
+    - RSS
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: false
+  highlight:
+    noClasses: false
+
+params:
+  description: 方奇兵的个人博客，记录 AI Agent、产品、阅读与生活。
+  intro: 写 AI Agent、产品、阅读，以及生活中值得留下来的判断。
+  author: 方奇兵
+
+menus:
+  main:
+    - name: 文章
+      pageRef: /posts
+      weight: 10
+    - name: 关于
+      pageRef: /about
+      weight: 20

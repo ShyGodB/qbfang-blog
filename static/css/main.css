@@ -1,0 +1,394 @@
+:root {
+  color-scheme: light dark;
+  --paper: #f5f1e8;
+  --paper-soft: #eee8dc;
+  --ink: #24211d;
+  --muted: #746e65;
+  --line: #d7d0c3;
+  --accent: #9f432c;
+  --measure: 42rem;
+  --shell: 72rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.shell {
+  width: min(calc(100% - 3rem), var(--shell));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 10;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.65rem 0.9rem;
+  transform: translateY(-200%);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header {
+  padding-block: 2.1rem;
+}
+
+.header-inner,
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.site-name {
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+nav a[aria-current="page"] {
+  color: var(--ink);
+}
+
+.home {
+  padding-block: clamp(4rem, 11vw, 8.5rem) 6rem;
+}
+
+.intro {
+  max-width: 48rem;
+  min-height: min(50vh, 30rem);
+}
+
+.intro h1,
+.page-header h1,
+.article-header h1,
+.not-found h1 {
+  margin: 0;
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.intro h1 {
+  font-size: clamp(3.4rem, 10vw, 7.8rem);
+  line-height: 0.95;
+}
+
+.intro p {
+  max-width: 36rem;
+  margin: 2rem 0 0;
+  color: var(--muted);
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
+  font-size: clamp(1.25rem, 2.8vw, 1.75rem);
+  line-height: 1.65;
+}
+
+.writing {
+  max-width: var(--measure);
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+}
+
+.section-heading a {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.article-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-list li {
+  border-bottom: 1px solid var(--line);
+}
+
+.article-list a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: baseline;
+  padding-block: 1.25rem;
+  text-decoration: none;
+}
+
+.article-title {
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: transform 160ms ease;
+}
+
+.article-list a:hover .article-title {
+  transform: translateX(0.2rem);
+}
+
+.article-meta {
+  display: flex;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.page,
+.article {
+  padding-block: clamp(4rem, 9vw, 7rem) 6rem;
+}
+
+.page {
+  max-width: var(--measure);
+}
+
+.page-header,
+.article-header {
+  margin-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.page-header h1,
+.article-header h1,
+.not-found h1 {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 1.15;
+}
+
+.page-intro {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.article {
+  max-width: var(--measure);
+}
+
+.article-header .article-meta {
+  margin-top: 1.25rem;
+}
+
+.prose {
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
+  font-size: 1.08rem;
+  line-height: 1.95;
+  overflow-wrap: break-word;
+}
+
+.prose > *:first-child {
+  margin-top: 0;
+}
+
+.prose h2,
+.prose h3 {
+  margin-top: 2.6em;
+  margin-bottom: 0.85em;
+  line-height: 1.35;
+}
+
+.prose h2 {
+  font-size: 1.55rem;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+}
+
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote,
+.prose pre {
+  margin-block: 1.35em;
+}
+
+.prose img {
+  display: block;
+  max-width: min(100%, 60rem);
+  height: auto;
+  margin: 2.5rem auto;
+}
+
+.prose blockquote {
+  margin-inline: 0;
+  padding: 0.2rem 0 0.2rem 1.4rem;
+  border-left: 2px solid var(--accent);
+  color: var(--muted);
+}
+
+.prose code {
+  padding: 0.12em 0.32em;
+  border-radius: 0.2rem;
+  background: var(--paper-soft);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.9em;
+}
+
+.prose pre {
+  overflow-x: auto;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  background: var(--paper-soft);
+  line-height: 1.6;
+}
+
+.prose pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.prose hr {
+  width: 4rem;
+  margin-block: 3.5rem;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.article-footer {
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+
+.empty-state,
+.page-intro,
+.not-found p {
+  color: var(--muted);
+}
+
+.site-footer {
+  padding-block: 2rem 3rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.footer-inner {
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+@media (max-width: 42rem) {
+  .shell {
+    width: min(calc(100% - 2rem), var(--shell));
+  }
+
+  .site-header {
+    padding-block: 1.4rem;
+  }
+
+  .home {
+    padding-top: 4rem;
+  }
+
+  .intro {
+    min-height: 45vh;
+  }
+
+  .article-list a {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .article-meta {
+    font-size: 0.78rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #181715;
+    --paper-soft: #211f1c;
+    --ink: #ede7dc;
+    --muted: #a69f95;
+    --line: #37332e;
+    --accent: #d17a5f;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+

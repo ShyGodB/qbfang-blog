@@ -1,0 +1,9 @@
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <span>{{ site.Copyright }}</span>
+    {{ with site.Home.OutputFormats.Get "rss" }}
+      <a href="{{ .RelPermalink }}">RSS</a>
+    {{ end }}
+  </div>
+</footer>
+

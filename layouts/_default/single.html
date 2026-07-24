@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <article class="shell article">
+    <header class="article-header">
+      <h1>{{ .Title }}</h1>
+      {{ if eq .Section "posts" }}
+        <div class="article-meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+          <span aria-hidden="true">·</span>
+          <span>{{ .ReadingTime }} 分钟阅读</span>
+        </div>
+      {{ end }}
+    </header>
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+
+    {{ if eq .Section "posts" }}
+      <footer class="article-footer">
+        <a href="{{ relref . "/posts" }}">返回全部文章</a>
+      </footer>
+    {{ end }}
+  </article>
+{{ end }}
+
