@@ -1,8 +1,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#181715" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" data-theme-color>
+<script>
+  try {
+    document.documentElement.dataset.theme = localStorage.getItem("qbfang-theme") === "dark" ? "dark" : "light";
+  } catch (_) {
+    document.documentElement.dataset.theme = "light";
+  }
+</script>
 
 {{ $description := .Description }}
 {{ if and (not $description) .IsPage }}
@@ -21,7 +27,10 @@
 
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
-<link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+{{ $styles := resources.Get "css/main.css" | minify | fingerprint }}
+{{ $themeScript := resources.Get "js/theme.js" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+<script src="{{ $themeScript.RelPermalink }}" integrity="{{ $themeScript.Data.Integrity }}" defer></script>
 
 {{ with .OutputFormats.Get "rss" }}
   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title }}">

@@ -1,0 +1,11 @@
+{
+  "name": "qbfang-blog",
+  "private": true,
+  "scripts": {
+    "build": "hugo --gc --minify",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "4.114.0"
+  }
+}
