@@ -7,6 +7,10 @@
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
           <span aria-hidden="true">·</span>
           <span>{{ .ReadingTime }} 分钟阅读</span>
+          {{ with .Params.authorship }}
+            <span class="authorship-separator" aria-hidden="true">·</span>
+            {{ partial "authorship-label.html" . }}
+          {{ end }}
         </div>
       {{ end }}
     </header>
@@ -22,4 +26,3 @@
     {{ end }}
   </article>
 {{ end }}
-

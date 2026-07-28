@@ -3,6 +3,7 @@ title: "写代码是舒适区，推广不是"
 date: 2026-04-28T17:11:15+08:00
 slug: code-is-the-comfort-zone
 tags: [产品, 个人成长]
+authorship: "人工主导 · AI 协作"
 ---
 
 以前我一直觉得，写代码是一件相对高级的工作。

@@ -3,6 +3,7 @@ title: "转录不是结果，纪要才是"
 date: 2026-05-09T14:12:55+08:00
 slug: transcription-is-not-the-result
 tags: [产品, 谈小简]
+authorship: "AI 主导 · 人工编辑"
 ---
 
 开始做「谈小简」的时候，我就有一个判断：

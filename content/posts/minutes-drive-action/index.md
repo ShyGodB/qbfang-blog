@@ -3,6 +3,7 @@ title: "纪要不是记录，是推进"
 date: 2026-04-23T07:03:46+08:00
 slug: minutes-drive-action
 tags: [产品, 谈小简]
+authorship: "AI 主导 · 人工编辑"
 ---
 
 越来越觉得，很多会议纪要只是写出来了，但并不能真正推进事情。

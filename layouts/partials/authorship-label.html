@@ -1,0 +1,5 @@
+{{- $class := "authorship-label--human" -}}
+{{- if or (eq . "AI 主导 · 人工编辑") (eq . "纯 AI 创作") -}}
+  {{- $class = "authorship-label--ai" -}}
+{{- end -}}
+<span class="authorship-label {{ $class }}">{{ . }}</span>

@@ -3,6 +3,7 @@ title: "整理知识库后，我开始反思伪工作"
 date: 2026-05-14T11:38:19+08:00
 slug: knowledge-base-and-fake-work
 tags: [工作方式, 个人成长]
+authorship: "AI 主导 · 人工编辑"
 ---
 
 

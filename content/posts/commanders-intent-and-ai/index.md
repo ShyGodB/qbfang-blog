@@ -3,6 +3,7 @@ title: "从指挥官意图到 AI 协作"
 date: 2026-07-10T10:46:11+08:00
 slug: commanders-intent-and-ai
 tags: [AI Agent, 工作方式]
+authorship: "人工主导 · AI 协作"
 ---
 
 今天从课程中读到一篇文章，是关于「指挥官意图」的。

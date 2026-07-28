@@ -6,6 +6,7 @@
   --muted: #686868;
   --line: #dededb;
   --accent: #9f432c;
+  --authorship-ai: #526f82;
   --measure: 42rem;
   --shell: 72rem;
 }
@@ -18,6 +19,7 @@
   --muted: #a69f95;
   --line: #37332e;
   --accent: #d17a5f;
+  --authorship-ai: #8daec2;
 }
 
 *,
@@ -247,11 +249,28 @@ nav a[aria-current="page"] {
 
 .article-meta {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.45rem;
   color: var(--muted);
   font-size: 0.82rem;
   font-variant-numeric: tabular-nums;
+}
+
+.article-meta > span,
+.article-meta > time {
   white-space: nowrap;
+}
+
+.authorship-label {
+  font-weight: 600;
+}
+
+.authorship-label--human {
+  color: var(--accent);
+}
+
+.authorship-label--ai {
+  color: var(--authorship-ai);
 }
 
 .page,
@@ -433,6 +452,14 @@ nav a[aria-current="page"] {
 
   .article-meta {
     font-size: 0.78rem;
+  }
+
+  .article-list .authorship-separator {
+    display: none;
+  }
+
+  .article-list .authorship-label {
+    flex-basis: 100%;
   }
 
   .prose {
