@@ -34,5 +34,8 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Validate AI search readiness
+        run: npm run validate:ai
+
       - name: Validate Worker bundle
         run: npx wrangler deploy --dry-run

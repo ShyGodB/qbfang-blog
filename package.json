@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "hugo --gc --minify",
+    "validate:ai": "node scripts/validate-ai-readiness.mjs",
     "deploy": "wrangler deploy"
   },
   "devDependencies": {

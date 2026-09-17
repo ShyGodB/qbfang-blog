@@ -1,0 +1,14 @@
+{{- $related := site.RegularPages.Related . | first 3 -}}
+<section class="related-content" aria-labelledby="related-title">
+  <h2 id="related-title">继续阅读</h2>
+  {{ if in .Params.tags "AI Agent" }}
+    <p class="topic-link"><a href="{{ relref . "/ai-agent" }}">进入 AI Agent 主题中心</a></p>
+  {{ end }}
+  {{ with $related }}
+    <ul>
+      {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{ end }}
+    </ul>
+  {{ end }}
+</section>

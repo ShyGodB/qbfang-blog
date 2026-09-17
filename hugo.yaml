@@ -31,12 +31,34 @@ params:
   description: 方奇兵的个人博客，记录 AI Agent、产品、阅读与生活。
   intro: 写 AI Agent、产品、阅读，以及生活中值得留下来的判断。
   author: 方奇兵
+  authorTitle: AI Agent 开发工程师
+  authorURL: /about/
+  sameAs:
+    - https://github.com/ShyGodB
+  topics:
+    - AI Agent
+    - AI Native 工作方式
+    - 上下文工程
+    - 人机协作
+
+related:
+  includeNewer: true
+  threshold: 60
+  toLower: false
+  indices:
+    - name: tags
+      weight: 100
+    - name: date
+      weight: 10
 
 menus:
   main:
     - name: 文章
       pageRef: /posts
       weight: 10
+    - name: AI Agent
+      pageRef: /ai-agent
+      weight: 15
     - name: 关于
       pageRef: /about
       weight: 20

@@ -7,11 +7,16 @@
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
           <span aria-hidden="true">·</span>
           <span>{{ .ReadingTime }} 分钟阅读</span>
+          <span aria-hidden="true">·</span>
+          <span>作者：<a rel="author" href="{{ site.Params.authorURL }}">{{ site.Params.author }}</a></span>
           {{ with .Params.authorship }}
             <span class="authorship-separator" aria-hidden="true">·</span>
             {{ partial "authorship-label.html" . }}
           {{ end }}
         </div>
+        {{ if gt .Lastmod.Unix .Date.Unix }}
+          <p class="article-updated">最后更新：<time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006-01-02" }}</time></p>
+        {{ end }}
       {{ end }}
     </header>
 
@@ -21,7 +26,8 @@
 
     {{ if eq .Section "posts" }}
       <footer class="article-footer">
-        <a href="{{ relref . "/posts" }}">返回全部文章</a>
+        {{ partial "related-content.html" . }}
+        <a class="back-link" href="{{ relref . "/posts" }}">返回全部文章</a>
       </footer>
     {{ end }}
   </article>
